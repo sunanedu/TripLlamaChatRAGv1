@@ -1,0 +1,211 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.7 Chrome/138.0.7204.251 Electron/37.7.1 Safari/537.36" version="28.2.7" pages="6">
+  <diagram name="1. Authentication &amp; Users" id="auth-users">
+    <mxGraphModel dx="2431" dy="1422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" value="1. Authentication &amp; Users System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="400" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="users-table" value="users&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    UUID                    NOT NULL&lt;br&gt;    email                 VARCHAR(255)             UNIQUE, NOT NULL&lt;br&gt;    password_hash         VARCHAR(255)             NOT NULL&lt;br&gt;    role                  VARCHAR(50)              DEFAULT &#39;member&#39;&lt;br&gt;    first_name            VARCHAR(255)&lt;br&gt;    last_name             VARCHAR(255)&lt;br&gt;    is_suspended          BOOLEAN                 DEFAULT false&lt;br&gt;    is_protected          BOOLEAN                 DEFAULT false&lt;br&gt;    limit_per_minute      INTEGER                 DEFAULT 60&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=12;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="100" y="120" width="600" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="tokens-table" value="tokens&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  user_id               UUID                    NOT NULL&lt;br&gt;    refresh_token         VARCHAR(255)            NOT NULL&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=12;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="810" y="170" width="500" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-tokens" value="1:1" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="users-table" target="tokens-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes1" value="📝 Notes:&#xa;• users.id (UUID) is Primary Key&#xa;• tokens.user_id references users.id (1:1)&#xa;• refresh_token stored for token refresh&#xa;• role: admin, staff, sponsor, member_pro, member, guest, user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;fontSize=11;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="100" y="460" width="600" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="2. Chat System" id="chat-system">
+    <mxGraphModel dx="2066" dy="1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" value="2. Chat System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="400" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="users-ref" value="users&#xa;(from Auth System)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="100" y="180" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="chat-sessions-table" value="chat_sessions&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    UUID                    NOT NULL&lt;br&gt;FK  user_id               UUID                    NULL (gateway users)&lt;br&gt;    title                 VARCHAR(255)&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=2;fontSize=12;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="500" y="120" width="600" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="chat-messages-table" value="chat_messages&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    INTEGER                 AUTO_INCREMENT&lt;br&gt;FK  session_id            UUID                    NOT NULL&lt;br&gt;    role                  VARCHAR(50)              &#39;user&#39; or &#39;assistant&#39;&lt;br&gt;    content               TEXT                    NOT NULL&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=2;fontSize=12;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="500" y="400" width="600" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-sessions" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="users-ref" target="chat-sessions-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-sessions-messages" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="chat-sessions-table" target="chat-messages-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes2" value="📝 Notes:&#xa;• chat_sessions.user_id can be NULL (for gateway users like LINE)&#xa;• chat_messages.role: &#39;user&#39; or &#39;assistant&#39;&#xa;• One session can have many messages (1:N)&#xa;• Messages are immutable (no updated_at)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;fontSize=11;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="100" y="660" width="1000" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="3. Business &amp; Packages" id="business-packages">
+    <mxGraphModel dx="2066" dy="1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" value="3. Business &amp; Package System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="400" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="users-ref2" value="users&#xa;(from Auth System)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="70" y="480" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="packages-table" value="packages&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    INTEGER                 AUTO_INCREMENT&lt;br&gt;    name                  VARCHAR(255)            NOT NULL&lt;br&gt;    price                 DECIMAL(10,2)&lt;br&gt;    rate_limit_per_min    INTEGER&lt;br&gt;    is_active             BOOLEAN                 DEFAULT true&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="520" y="110" width="500" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="businesses-table" value="businesses&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    INTEGER                 AUTO_INCREMENT&lt;br&gt;FK  user_id               UUID                    NULL&lt;br&gt;FK  package_id            INTEGER                 NULL&lt;br&gt;    name                  VARCHAR(255)            NOT NULL&lt;br&gt;    description           TEXT&lt;br&gt;    business_type         VARCHAR(255)&lt;br&gt;    contact_email         VARCHAR(255)&lt;br&gt;    phone_number          VARCHAR(255)&lt;br&gt;    website_url           TEXT&lt;br&gt;    is_active             BOOLEAN                 DEFAULT true&lt;br&gt;    embedding             TEXT (vector JSON)      NULL&lt;br&gt;    embedding_status      VARCHAR(50)            NULL&lt;br&gt;    last_embedded_at      TIMESTAMP              NULL&lt;br&gt;    embedding_version     INTEGER                 DEFAULT 0&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#004d40;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="400" y="420" width="500" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="business-packages-table" value="business_packages&lt;br&gt;(Junction Table)&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;FK  business_id           INTEGER                 NOT NULL&lt;br&gt;FK  package_id            INTEGER                 NOT NULL&lt;br&gt;    start_date            TIMESTAMP               NOT NULL&lt;br&gt;    end_date              TIMESTAMP               NULL&lt;br&gt;    status                ENUM                    &#39;active&#39;|&#39;expired&#39;|&#39;cancelled&#39;&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="1100" y="470" width="450" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="business-images-table" value="business_images&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    INTEGER                 AUTO_INCREMENT&lt;br&gt;FK  business_id           INTEGER                 NOT NULL&lt;br&gt;    image_url             TEXT                    NOT NULL&lt;br&gt;    caption               TEXT                    NULL&lt;br&gt;    is_cover              BOOLEAN                 DEFAULT false&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="300" y="890" width="450" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-businesses" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.25;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="users-ref2" target="businesses-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-packages-businesses" value="N:1" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.75;entryY=0;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="packages-table" target="businesses-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-businesses-packages" value="N:M" style="endArrow=ERmany;startArrow=ERmany;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="businesses-table" target="business-packages-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-packages-junction" value="" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.25;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="packages-table" target="business-packages-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-businesses-images" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=0.25;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="businesses-table" target="business-images-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes3" value="📝 Notes:&#xa;• businesses.user_id (owner/sponsor) can be NULL&#xa;• businesses.package_id: current package (can be NULL)&#xa;• business_packages: Many-to-Many relationship (business can have multiple packages over time)&#xa;• businesses.embedding: stored as TEXT (pgvector vector JSON)&#xa;• business_images: multiple images per business (is_cover flag for main image)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;fontSize=11;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="790" y="850" width="850" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="4. Payment System" id="payment-system">
+    <mxGraphModel dx="2066" dy="1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title4" value="4. Payment System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="400" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="users-ref3" value="users" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="20" y="550" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="business-packages-ref" value="business_packages" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="20" y="190" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="packages-ref" value="packages" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="920" y="690" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VPiJZlAqQJhVds8Vcgg4-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="payment-slips-table">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="449.8571428571429" y="215.28571428571433" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="payment-slips-table" value="payment_slips&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    UUID                    NOT NULL&lt;br&gt;FK  business_package_id   INTEGER                 NULL&lt;br&gt;FK  user_id               UUID                    NULL&lt;br&gt;    slip_url              VARCHAR(255)            NOT NULL&lt;br&gt;    amount                DECIMAL(10,2)           NOT NULL&lt;br&gt;    transfer_date         DATE&lt;br&gt;    transfer_time         TIME&lt;br&gt;    status                ENUM                    &#39;pending&#39;|&#39;approved&#39;|&#39;rejected&#39;&lt;br&gt;    note                  TEXT&lt;br&gt;    admin_note            TEXT&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="300" y="140" width="550" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="transactions-table" value="transactions&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    INTEGER                 AUTO_INCREMENT&lt;br&gt;FK  user_id               UUID                    NULL&lt;br&gt;FK  package_id            INTEGER                 NULL&lt;br&gt;FK  promotion_id          INTEGER                 NULL&lt;br&gt;FK  approved_by           UUID                    NULL&lt;br&gt;    final_amount          DECIMAL(10,2)&lt;br&gt;    payment_method        VARCHAR(255)&lt;br&gt;    slip_url              TEXT&lt;br&gt;    status                VARCHAR(50)             &#39;pending&#39;|&#39;approved&#39;|&#39;rejected&#39;&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="290" y="510" width="550" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="promotions-table" value="promotions&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    INTEGER                 AUTO_INCREMENT&lt;br&gt;    code                  VARCHAR(255)            UNIQUE&lt;br&gt;    discount_type         VARCHAR(50)&lt;br&gt;    discount_value        DECIMAL(10,2)&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="920" y="500" width="350" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-payments" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.75;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="users-ref3" target="payment-slips-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-bp-payments" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.25;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="business-packages-ref" target="payment-slips-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-transactions" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.25;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="users-ref3" target="transactions-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-packages-transactions" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.75;strokeWidth=2;strokeColor=#d32f2f;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" parent="1" source="packages-ref" target="transactions-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-promotions-transactions" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.25;strokeWidth=2;strokeColor=#d32f2f;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" parent="1" source="promotions-table" target="transactions-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-admin-transactions" value="N:1" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.75;entryX=0;entryY=0.75;strokeWidth=2;strokeColor=#d32f2f;dashed=1;entryDx=0;entryDy=0;exitDx=0;exitDy=0;" parent="1" source="users-ref3" target="transactions-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes4" value="📝 Notes:&#xa;• payment_slips: สลิปการชำระเงินสำหรับ business_packages&#xa;• transactions: การทำธุรกรรม (สามารถมี promotion ได้)&#xa;• transactions.approved_by: admin user ที่อนุมัติ&#xa;• payment_slips.business_package_id: nullable (สำหรับ dev/test slips)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;fontSize=11;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="100" y="830" width="1000" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="5. Embedding System" id="embedding-system">
+    <mxGraphModel dx="2066" dy="1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title5" value="5. Embedding System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="400" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="businesses-ref" value="businesses&#xa;(from Business System)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="210" y="190" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="embedding-events-table" value="embedding_events&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    UUID                    NOT NULL&lt;br&gt;FK  business_id           INTEGER                 NOT NULL&lt;br&gt;    event_type            VARCHAR(255)            NOT NULL&lt;br&gt;    job_id                VARCHAR(255)            NULL&lt;br&gt;    attempt               INTEGER                 NULL&lt;br&gt;    duration_ms           INTEGER                 NULL&lt;br&gt;    error                 TEXT                    NULL&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=12;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="640" y="110" width="600" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="businesses-embedding-detail" value="businesses table&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;Embedding-related Fields:&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;    embedding             TEXT                    pgvector JSON (1536-d)&lt;br&gt;    embedding_status      VARCHAR(50)             &#39;pending&#39;|&#39;queued&#39;|&#39;processing&#39;|&#39;ready&#39;|&#39;failed&#39;&lt;br&gt;    last_embedded_at      TIMESTAMP               NULL&lt;br&gt;    embedding_version     INTEGER                 DEFAULT 0 (increments)&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#004d40;strokeWidth=2;fontSize=11;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="60" y="410" width="600" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-businesses-events" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="businesses-ref" target="embedding-events-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-businesses-embedding" style="endArrow=ERone;startArrow=ERone;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;strokeColor=#1976d2;dashed=1;dashPattern=5 5" parent="1" source="businesses-ref" target="businesses-embedding-detail" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes5" value="📝 Notes:&#xa;• embedding_events: Audit log สำหรับ embedding jobs&#xa;• event_type: &#39;pending&#39;, &#39;queued&#39;, &#39;processing&#39;, &#39;ready&#39;, &#39;failed&#39;&#xa;• embedding_version: เพิ่มขึ้นทุกครั้งที่ embedding สำเร็จ&#xa;• embedding field: เก็บเป็น TEXT (JSON format) สำหรับ pgvector compatibility&#xa;• BullMQ job_id: เชื่อมโยงกับ job queue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;fontSize=11;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="100" y="680" width="1000" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="6. Subscription System" id="subscription-system">
+    <mxGraphModel dx="2066" dy="1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title6" value="6. Subscription System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="400" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="users-ref4" value="users" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="100" y="220" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="packages-ref2" value="packages" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8e8e8;strokeColor=#999999;strokeWidth=1;fontSize=11;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="100" y="360" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="subscriptions-table" value="subscriptions&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&lt;br&gt;PK  id                    INTEGER                 AUTO_INCREMENT&lt;br&gt;FK  user_id               UUID                    NOT NULL&lt;br&gt;FK  package_id            INTEGER                 NOT NULL&lt;br&gt;    start_date            TIMESTAMP               NOT NULL&lt;br&gt;    end_date              TIMESTAMP               NULL&lt;br&gt;    is_active             BOOLEAN                 DEFAULT true&lt;br&gt;    created_at            TIMESTAMP&lt;br&gt;    updated_at            TIMESTAMP&lt;br&gt;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontSize=12;fontFamily=Courier New;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="450" y="200" width="550" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-subscriptions" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.25;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="users-ref4" target="subscriptions-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-packages-subscriptions" value="1:N" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.75;strokeWidth=2;strokeColor=#d32f2f" parent="1" source="packages-ref2" target="subscriptions-table" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes6" value="📝 Notes:&#xa;• subscriptions: ผู้ใช้สามารถมีหลาย subscriptions (เปลี่ยนแพ็กเกจ)&#xa;• is_active: แสดงว่ากำลังใช้งานแพ็กเกจนี้อยู่หรือไม่&#xa;• end_date: NULL = ไม่มีวันหมดอายุ&#xa;• Multiple active subscriptions possible (แต่ควรมี logic check)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;fontSize=11;align=left;verticalAlign=top;spacingLeft=10" parent="1" vertex="1">
+          <mxGeometry x="100" y="540" width="900" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
