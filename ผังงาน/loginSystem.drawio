@@ -1,0 +1,164 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.7 Chrome/138.0.7204.251 Electron/37.7.1 Safari/537.36" version="28.2.7">
+  <diagram name="Login System Flow" id="login-system-flow">
+    <mxGraphModel dx="2066" dy="1209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="🔐 Login System Flow Diagram&amp;nbsp; Sri-KetGuide" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="590" y="120" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user" value="👤 User Browser&#xa;frontend.sri-ketguide.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=14" parent="1" vertex="1">
+          <mxGeometry x="40" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="login-form" value="📝 Login Form&#xa;(login.html)&#xa;&#xa;• Email Input&#xa;• Password Input&#xa;• Submit Button" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="40" y="320" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="frontend-auth" value="⚙️ Frontend Auth Handler&#xa;(auth.js)&#xa;&#xa;• saveTokens()&#xa;• getAccessToken()&#xa;• clearTokens()&#xa;• localStorage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="40" y="480" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="api-call" value="🌐 API Call&#xa;(api.js)&#xa;&#xa;POST /api/auth/login&#xa;Headers: Content-Type&#xa;Body: {email, password}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="40" y="660" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudflare" value="☁️ Cloudflare Tunnel&#xa;&#xa;HTTPS → HTTP&#xa;Route: api.sri-ketguide.com&#xa;→ llm-chat-api:3000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="340" y="660" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="express-route" value="🚀 Express Route&#xa;(auth.routes.js)&#xa;&#xa;POST /api/auth/login&#xa;→ authController.login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="640" y="660" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-controller" value="🎯 Auth Controller&#xa;(auth.controller.js)&#xa;&#xa;1. Validate input&#xa;2. Find user by email&#xa;3. Compare password&#xa;4. Check suspended&#xa;5. Generate tokens" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#004d40;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="940" y="500" width="250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="database" value="🗄️ PostgreSQL Database&#xa;(llm-chat-database:5432)&#xa;&#xa;users table:&#xa;• email&#xa;• password_hash&#xa;• role&#xa;• is_suspended&#xa;&#xa;tokens table:&#xa;• user_id&#xa;• refresh_token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="940" y="761" width="250" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="bcrypt" value="🔒 Bcrypt&#xa;&#xa;Password Hashing:&#xa;• bcrypt.compare()&#xa;• Verify password_hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="940" y="320" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="token-service" value="🎫 Token Service&#xa;(token.service.js)&#xa;&#xa;• generateTokens()&#xa;• saveToken()&#xa;• JWT Sign&#xa;• Access Token (1h)&#xa;• Refresh Token (7d)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="640" y="320" width="250" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="success-response" value="✅ Success Response&#xa;&#xa;{&#xa;  message: &#39;Login successful&#39;,&#xa;  user: {id, email, role},&#xa;  tokens: {&#xa;    accessToken,&#xa;    refreshToken&#xa;  }&#xa;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="340" y="320" width="250" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="save-tokens" value="💾 Save to localStorage&#xa;&#xa;• llm_access_token&#xa;• llm_refresh_token&#xa;• llm_user_role" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="40" y="820" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="redirect" value="➡️ Redirect&#xa;&#xa;window.location.hash&#xa;= &#39;#/chat&#39;&#xa;หรือ &#39;#/admin&#39;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="40" y="980" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="error-invalid" value="❌ Error: Invalid Credentials&#xa;Status: 401&#xa;{message: &#39;Invalid email or password&#39;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="340" y="500" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="QHJdGyWcDHkJRZ_IzCwz-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="error-suspended" target="error-invalid" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="error-suspended" value="❌ Error: Account Suspended&#xa;Status: 403&#xa;{message: &#39;Your account has been suspended&#39;}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="640" y="500" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-middleware" value="🛡️ Auth Middleware&#xa;(auth.middleware.js)&#xa;&#xa;For Protected Routes:&#xa;• Extract token from header&#xa;• Verify JWT&#xa;• Attach user to req.user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="1290" y="500" width="250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="protected-route" value="🔒 Protected Route&#xa;&#xa;Any API endpoint&#xa;that requires auth&#xa;&#xa;Example:&#xa;POST /api/chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="1290" y="720" width="250" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" value="1. User opens login page" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="user" target="login-form" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" value="2. User submits form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="login-form" target="frontend-auth" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" value="3. Prepare API call" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="frontend-auth" target="api-call" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" value="4. POST /api/auth/login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" edge="1">
+          <mxGeometry y="20" relative="1" as="geometry">
+            <mxPoint x="240" y="720.0000000000002" as="sourcePoint" />
+            <mxPoint x="340" y="720.0000000000002" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow5" value="5. Proxy to API" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="cloudflare" target="express-route" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow6" value="6. Route to controller" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="express-route" target="auth-controller" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="720" />
+              <mxPoint x="910" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow7" value="7. Query database" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="auth-controller" target="database" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow8" value="8. Verify password" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="auth-controller" target="bcrypt" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="470" />
+              <mxPoint x="1110" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow9" value="9. Generate tokens" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="auth-controller" target="token-service" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="480" />
+              <mxPoint x="765" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow10" value="10. Save refresh token" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="token-service" target="database" edge="1">
+          <mxGeometry x="0.615" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="765" y="260" />
+              <mxPoint x="1240" y="260" />
+              <mxPoint x="1240" y="870" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow11" value="11. Return success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="auth-controller" target="success-response" edge="1">
+          <mxGeometry x="-0.0078" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1210" y="590" />
+              <mxPoint x="1210" y="220" />
+              <mxPoint x="465" y="220" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow12" value="12. Receive tokens" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="success-response" target="save-tokens" edge="1">
+          <mxGeometry x="-0.6272" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="390" />
+              <mxPoint x="290" y="880" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow13" value="13. Redirect to app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="save-tokens" target="redirect" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="error-arrow1" value="Invalid credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;strokeColor=#c62828;dashed=1" parent="1" source="auth-controller" target="error-invalid" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="620" />
+              <mxPoint x="610" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="error-arrow2" value="Account suspended" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11;strokeColor=#c62828;dashed=1" parent="1" source="auth-controller" target="error-suspended" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="590" />
+              <mxPoint x="910" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-middleware" value="For protected routes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="auth-middleware" target="protected-route" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

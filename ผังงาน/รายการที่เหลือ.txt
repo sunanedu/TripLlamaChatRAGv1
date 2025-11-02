@@ -1,0 +1,60 @@
+ผังงานที่ควรสร้างเพิ่ม:
+Authentication & Security:
+Token Refresh Flow Diagram
+Flow การ refresh access token เมื่อหมดอายุ
+Refresh token validation และการสร้าง token ใหม่
+JWT Middleware Flow Diagram
+กระบวนการตรวจสอบ JWT token ใน protected routes
+Error handling และ redirect
+Session Management Diagram
+การสร้าง/จัดการ chat sessions
+Session mapping สำหรับ LINE/Facebook users
+Chat & RAG System:
+Chat Request Flow Diagram
+Flow ตั้งแต่ผู้ใช้ส่งข้อความถึงได้รับคำตอบ
+RAG pipeline (embedding → vector search → context building)
+RAG Pipeline Diagram
+Query embedding generation
+Vector similarity search
+Context assembly และ prompt building
+Streaming Response Flow Diagram
+SSE (Server-Sent Events) flow
+Streaming chunks จาก LLM ถึง frontend
+Messaging Integration:
+LINE Webhook Flow Diagram
+Webhook reception → normalization → backend
+Reply message flow
+Messaging Gateway Flow Diagram
+Message normalization (LINE/Facebook/Telegram)
+Session mapping และ routing
+Background Jobs:
+Embedding Job Flow Diagram
+BullMQ job enqueue → worker processing
+Error handling และ retry logic
+Auto-Embedding Trigger Diagram
+Trigger เมื่อ business ถูกสร้าง/แก้ไข
+Debounce mechanism
+Database & Data:
+Database Schema Diagram
+ER diagram แสดง tables และ relationships
+Users, Businesses, ChatSessions, ChatMessages, etc.
+Vector Search Flow Diagram
+pgvector query execution
+Similarity calculation และ ranking
+Infrastructure & Deployment:
+Docker Architecture Diagram
+Container relationships
+Network topology และ volume mounts
+Cloudflare Tunnel Setup Diagram
+Tunnel configuration
+Route mapping (domain → internal service)
+Payment & Business:
+Payment Flow Diagram
+Payment slip upload → verification → approval
+Business package activation
+Business Registration Flow Diagram
+Sponsor registration → business creation → embedding
+Admin Panel:
+Admin Dashboard Architecture Diagram
+Admin panel components
+Tab navigation และ data flow

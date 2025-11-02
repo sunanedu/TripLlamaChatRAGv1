@@ -1,0 +1,279 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.7 Chrome/138.0.7204.251 Electron/37.7.1 Safari/537.36" version="28.2.7">
+  <diagram name="System Components Overview" id="system-components-overview">
+    <mxGraphModel dx="2951" dy="1727" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="🏗️ System Components Overview - Sri-KetGuide" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="210" y="70" width="1200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="user" value="👤 User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=3;fontSize=16" parent="1" vertex="1">
+          <mxGeometry x="755" y="160" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="channel" value="📱 Channel Selection" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=14" parent="1" vertex="1">
+          <mxGeometry x="755" y="268" width="150" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="channel-title" value="Entry Channels" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="630" y="368" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="web-pwa" value="🌐 Web/PWA&#xa;Frontend SPA&#xa;SPA Routing&#xa;Vite + Bootstrap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="355" y="430" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="line" value="💬 LINE&#xa;Official Account&#xa;@61582704027978&#xa;LINE Bot SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="605" y="430" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="facebook" value="📘 Facebook&#xa;Messenger&#xa;(Ready but inactive)&#xa;Graph API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="855" y="430" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="telegram" value="📱 Telegram&#xa;Bot&#xa;(Ready)&#xa;Bot API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5ff;strokeColor=#01579b;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="1105" y="430" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cloudflare" value="☁️ Cloudflare Tunnel&#xa;Secure Ingress&#xa;HTTPS → HTTP&#xa;DDoS Protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="730" y="590" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="messaging-gateway" value="💬 Messaging Gateway&#xa;Message Normalization&#xa;Session Mapping&#xa;Platform Integration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="730" y="750" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="llm-api" value="🚀 LLM Chat API&#xa;Express.js + Node.js&#xa;RESTful API&#xa;Business Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="730" y="910" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rag-title" value="RAG Pipeline (Retrieval-Augmented Generation)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="230" y="1070" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="query-embedding" value="1️⃣ Query Embedding&#xa;Convert User Query&#xa;to Vector (1536-d)&#xa;Ollama API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=11" parent="1" vertex="1">
+          <mxGeometry x="230" y="1120" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vector-search" value="2️⃣ Vector Search&#xa;pgvector Similarity&#xa;Cosine Distance&#xa;Top 10 Results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=11" parent="1" vertex="1">
+          <mxGeometry x="450" y="1120" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="context-build" value="3️⃣ Context Building&#xa;Persona Prompt&#xa;+ Conversation History&#xa;+ Business Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=11" parent="1" vertex="1">
+          <mxGeometry x="670" y="1120" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="data-title" value="Data Storage" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1090" y="1070" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" value="🗄️ PostgreSQL&#xa;+ pgvector Extension&#xa;Vector Storage&#xa;ACID Compliance" style="cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=11" parent="1" vertex="1">
+          <mxGeometry x="1030" y="1120" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="⚡ Redis&#xa;In-Memory Cache&#xa;BullMQ Backend&#xa;Session Store" style="cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff9c4;strokeColor=#f57f17;strokeWidth=2;fontSize=11" parent="1" vertex="1">
+          <mxGeometry x="1280" y="1120" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-title" value="AI Services" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="230" y="1290" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ollama-llm" value="🤖 Ollama LLM&#xa;Model: llama3.2 (7B)&#xa;Local LLM&#xa;Text Generation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="230" y="1340" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="embedding-service" value="📊 Embedding Service&#xa;Vector Generation&#xa;1536 Dimensions&#xa;Ollama API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="480" y="1340" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jobs-title" value="Background Jobs" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="730" y="1290" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bullmq-worker" value="⚙️ BullMQ Worker&#xa;Async Job Processing&#xa;Embedding Generation&#xa;Retry Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="730" y="1340" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="redis-queue" value="📋 Redis Queue&#xa;Job Storage&#xa;BullMQ Backend&#xa;Job History" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#1b5e20;strokeWidth=2;fontSize=12" parent="1" vertex="1">
+          <mxGeometry x="980" y="1340" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="response-title" value="Response Streaming" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1230" y="1290" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sse" value="📡 SSE&#xa;Server-Sent Events&#xa;Real-time Streaming&#xa;Web Channel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#004d40;strokeWidth=2;fontSize=11" parent="1" vertex="1">
+          <mxGeometry x="1230" y="1340" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="line-api" value="💬 LINE API&#xa;Push/Reply Message&#xa;2000 char limit&#xa;LINE Bot SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#004d40;strokeWidth=2;fontSize=11" parent="1" vertex="1">
+          <mxGeometry x="1400" y="1340" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-user-channel" value="Select Channel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=11" parent="1" source="user" target="channel" edge="1">
+          <mxGeometry x="0.4" y="-45" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-channel-web" value="Web/PWA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="channel" target="web-pwa" edge="1">
+          <mxGeometry x="0.3846" y="-10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="410" />
+              <mxPoint x="455" y="410" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-channel-line" value="LINE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="channel" target="line" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="410" />
+              <mxPoint x="705" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-channel-facebook" value="Facebook" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="channel" target="facebook" edge="1">
+          <mxGeometry x="0.6256" y="10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="410" />
+              <mxPoint x="955" y="410" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-channel-telegram" value="Telegram" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="channel" target="telegram" edge="1">
+          <mxGeometry x="0.7025" y="10" relative="1" as="geometry">
+            <mxPoint x="350" y="530" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="830" y="410" />
+              <mxPoint x="1205" y="410" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-web-tunnel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="web-pwa" target="cloudflare" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="455" y="560" />
+              <mxPoint x="830" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-line-tunnel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="line" target="cloudflare" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="530" />
+              <mxPoint x="710" y="560" />
+              <mxPoint x="830" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-facebook-tunnel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="facebook" target="cloudflare" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="530" />
+              <mxPoint x="960" y="560" />
+              <mxPoint x="830" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-telegram-tunnel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="telegram" target="cloudflare" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1205" y="560" />
+              <mxPoint x="830" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-tunnel-gateway" value="Proxy" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="cloudflare" target="messaging-gateway" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-gateway-api" value="Normalize &amp; Route" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="messaging-gateway" target="llm-api" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-api-rag" value="Process Request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="llm-api" target="query-embedding" edge="1">
+          <mxGeometry x="0.8987" y="-50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="960" />
+              <mxPoint x="190" y="1170" />
+            </Array>
+            <mxPoint x="-50" y="-50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-embed-search" value="Query Vector" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="query-embedding" target="vector-search" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-search-context" value="Similar Results" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="vector-search" target="context-build" edge="1">
+          <mxGeometry y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-api-postgres" value="Query Data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="llm-api" target="postgres" edge="1">
+          <mxGeometry x="0.5556" y="-40" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-api-redis" value="Queue Jobs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="llm-api" target="redis" edge="1">
+          <mxGeometry x="0.7377" y="-30" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-api-ollama" value="Generate Response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="llm-api" target="ollama-llm" edge="1">
+          <mxGeometry x="0.9208" y="-50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="960" />
+              <mxPoint x="190" y="1390" />
+            </Array>
+            <mxPoint x="-50" y="-50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-api-embedding" value="Generate Embedding" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="llm-api" target="embedding-service" edge="1">
+          <mxGeometry x="-0.434" y="-60" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="960" />
+              <mxPoint x="650" y="1270" />
+              <mxPoint x="580" y="1270" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-worker-queue" value="Pull Jobs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="bullmq-worker" target="redis-queue" edge="1">
+          <mxGeometry x="-0.2" y="-10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="1390" />
+              <mxPoint x="950" y="1390" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-worker-embedding" value="Create Embeddings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="bullmq-worker" target="embedding-service" edge="1">
+          <mxGeometry x="-0.2" y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-worker-postgres" value="Update Vectors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="bullmq-worker" target="postgres" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="1370" />
+              <mxPoint x="950" y="1180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-api-sse" value="Stream Response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="llm-api" target="sse" edge="1">
+          <mxGeometry x="0.2039" y="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1610" y="960" />
+              <mxPoint x="1610" y="1470" />
+              <mxPoint x="1305" y="1470" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-api-line" value="Send Message" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="llm-api" target="line-api" edge="1">
+          <mxGeometry x="0.3273" y="-40" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1610" y="960" />
+              <mxPoint x="1610" y="1380" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-embed-postgres" value="Store Vectors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="embedding-service" target="postgres" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="1470" />
+              <mxPoint x="1210" y="1470" />
+              <mxPoint x="1210" y="1280" />
+              <mxPoint x="1130" y="1280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-search-postgres" value="pgvector Query" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10" parent="1" source="vector-search" target="postgres" edge="1">
+          <mxGeometry x="0.0175" y="10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="1100" />
+              <mxPoint x="950" y="1100" />
+              <mxPoint x="950" y="1160" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
